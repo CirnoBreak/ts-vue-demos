@@ -15,6 +15,7 @@ const About = (resolve: any) => {
   })
 }
 
+// 引入markdown组件
 const Markdown = (resolve: any) => {
   require.ensure(['./views/markdown/index.vue'], () => {
     resolve(require('./views/markdown/index.vue'))
@@ -30,6 +31,12 @@ const Gitsub = (resolve: any) => {
 const Grid = (resolve: any) => {
   require.ensure(['./views/grid/index.vue'], () => {
     resolve(require('./views/grid/index.vue'))
+  })
+}
+
+const TreeItem = (resolve: any) => {
+  require.ensure(['./views/treeview/index.vue'], () => {
+    resolve(require('./views/treeview/index.vue'))
   })
 }
 
@@ -69,6 +76,11 @@ export default new Router({
       path: '/grid',
       name: 'grid',
       component: Grid
+    },
+    {
+      path: '/treeview',
+      name: 'treeview',
+      component: TreeItem
     }
 
   ]

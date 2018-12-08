@@ -37,9 +37,9 @@ import gridInterface from '../grid.interface'
   }
 })
 export default class DemoGrid extends Vue {
-  @Prop({ required: true }) columns!: Array<string> // 表头
-  @Prop({}) filterKey!: string // 查找关键词
-  @Prop({}) gridData!: Array<gridInterface> // 表数据
+  @Prop() columns!: Array<string> // 表头
+  @Prop() filterKey!: string // 查找关键词
+  @Prop() gridData!: Array<gridInterface> // 表数据
   sortKey: string = '' // 筛选排序关键词
   sortOrders: any = {} // 表头筛选升/降序
 
