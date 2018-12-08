@@ -28,7 +28,7 @@ interface gridData {
   }
 })
 export default class Grid extends Vue {
-  searchQuery: string = '' // 搜索关键词
+  searchQuery: string = '' // 查找关键词
   gridColumns: Array<string> = ['name', 'power'] // 表头
   gridData: Array<gridInterface> = [
     { name: 'Chuck Norris', power: Infinity },

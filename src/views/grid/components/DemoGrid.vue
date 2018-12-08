@@ -38,7 +38,7 @@ import gridInterface from '../grid.interface'
 })
 export default class DemoGrid extends Vue {
   @Prop({ required: true }) columns!: Array<string> // 表头
-  @Prop({}) filterKey!: string // 搜索关键词
+  @Prop({}) filterKey!: string // 查找关键词
   @Prop({}) gridData!: Array<gridInterface> // 表数据
   sortKey: string = '' // 筛选排序关键词
   sortOrders: any = {} // 表头筛选升/降序
@@ -47,6 +47,7 @@ export default class DemoGrid extends Vue {
     this.setSortOrders()
   }
 
+  // 默认把sortOrders都设置为1
   setSortOrders () {
     let sortOrders: any = {}
     this.columns.forEach((key) => {
@@ -55,17 +56,19 @@ export default class DemoGrid extends Vue {
     this.sortOrders = sortOrders
   }
 
+  // 把sortKey改成当前点中的表头字段，并把sortOrders里面对应的该字段的数字*-1
   sortBy (key: any) {
     this.sortKey = key
     this.sortOrders[key] = this.sortOrders[key] * -1
   }
-
+  // 根据筛选的条件(查找关键词/筛选字段)排序
   get filteredData () {
     let sortKey = this.sortKey
     let filterKey = this.filterKey && this.filterKey.toLowerCase()
     let order = this.sortOrders[sortKey] || 1
     let data = this.gridData
 
+    // 存在查找关键词时，根据查找关键词筛选数据
     if (filterKey) {
       data = data.filter((row: any) => {
         return Object.keys(row).some(function (key) {
@@ -74,6 +77,7 @@ export default class DemoGrid extends Vue {
       })
     }
 
+    // 存在筛选条件时，在数据排序时，sort函数判断条件*当前order(1/-1)
     if (sortKey) {
       data = data.slice().sort(function (a: any, b: any) {
         a = a[sortKey]
