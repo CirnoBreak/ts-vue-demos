@@ -3,27 +3,33 @@ import Router from 'vue-router'
 
 // 引入 Home 组件
 const Home = (resolve: any) => {
-  require.ensure(['./views/Home.vue'], () => {
-    resolve(require('./views/Home.vue'))
+  require.ensure(['./views/home/index.vue'], () => {
+    resolve(require('./views/home/index.vue'))
   })
 }
 
 // 引入 About 组件
 const About = (resolve: any) => {
-  require.ensure(['./views/About.vue'], () => {
-    resolve(require('./views/About.vue'))
+  require.ensure(['./views/about/index.vue'], () => {
+    resolve(require('./views/about/index.vue'))
   })
 }
 
 const Markdown = (resolve: any) => {
-  require.ensure(['./views/Markdown.vue'], () => {
-    resolve(require('./views/Markdown.vue'))
+  require.ensure(['./views/markdown/index.vue'], () => {
+    resolve(require('./views/markdown/index.vue'))
   })
 }
 
 const Gitsub = (resolve: any) => {
-  require.ensure(['./views/Gitsub.vue'], () => {
-    resolve(require('./views/Gitsub.vue'))
+  require.ensure(['./views/gitsub/index.vue'], () => {
+    resolve(require('./views/gitsub/index.vue'))
+  })
+}
+
+const Grid = (resolve: any) => {
+  require.ensure(['./views/grid/index.vue'], () => {
+    resolve(require('./views/grid/index.vue'))
   })
 }
 
@@ -58,6 +64,11 @@ export default new Router({
       path: '/gitsub',
       name: 'gitsub',
       component: Gitsub
+    },
+    {
+      path: '/grid',
+      name: 'grid',
+      component: Grid
     }
 
   ]
