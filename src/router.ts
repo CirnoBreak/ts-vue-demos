@@ -1,44 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// 主路由懒加载
+const MainRoutes = (name: string) => () => import(`./views/${name}/index.vue`)
 // 引入 Home 组件
-const Home = (resolve: any) => {
-  require.ensure(['./views/home/index.vue'], () => {
-    resolve(require('./views/home/index.vue'))
-  })
-}
-
+const Home = MainRoutes('home')
 // 引入 About 组件
-const About = (resolve: any) => {
-  require.ensure(['./views/about/index.vue'], () => {
-    resolve(require('./views/about/index.vue'))
-  })
-}
-
-// 引入markdown组件
-const Markdown = (resolve: any) => {
-  require.ensure(['./views/markdown/index.vue'], () => {
-    resolve(require('./views/markdown/index.vue'))
-  })
-}
-
-const Gitsub = (resolve: any) => {
-  require.ensure(['./views/gitsub/index.vue'], () => {
-    resolve(require('./views/gitsub/index.vue'))
-  })
-}
-
-const Grid = (resolve: any) => {
-  require.ensure(['./views/grid/index.vue'], () => {
-    resolve(require('./views/grid/index.vue'))
-  })
-}
-
-const TreeItem = (resolve: any) => {
-  require.ensure(['./views/treeview/index.vue'], () => {
-    resolve(require('./views/treeview/index.vue'))
-  })
-}
+const About = MainRoutes('about')
+// 引入 markdown 组件
+const Markdown = MainRoutes('markdown')
+// 引入 gitsub 组件
+const Gitsub = MainRoutes('gitsub')
+// 引入 grid 组件
+const Grid = MainRoutes('grid')
+// 引入 treeview 组件
+const TreeItem = MainRoutes('treeview')
+// 引入 svgchart 组件
+const SvgChart = MainRoutes('svgchart')
 
 Vue.use(Router)
 
@@ -57,10 +35,6 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      // component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
       path: '/markdown',
@@ -81,6 +55,11 @@ export default new Router({
       path: '/treeview',
       name: 'treeview',
       component: TreeItem
+    },
+    {
+      path: '/svgchart',
+      name: 'svgchart',
+      component: SvgChart
     }
 
   ]
