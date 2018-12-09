@@ -12,8 +12,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import DemoGrid from './components/DemoGrid.vue'
 import gridInterface from './grid.interface'
 

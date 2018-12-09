@@ -34,8 +34,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { Component, Watch } from 'vue-property-decorator'
+import { Component, Watch, Vue } from 'vue-property-decorator'
 
 const apiUrl = 'https://api.github.com/repos/vuejs/vue/commits?per_page=3&sha='
 

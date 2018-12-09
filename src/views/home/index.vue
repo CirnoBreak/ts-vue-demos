@@ -6,8 +6,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import { State, Action, Getter } from 'vuex-class'
 import HelloWorld from '@/components/HelloWorld.vue'
 
