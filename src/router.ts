@@ -17,6 +17,8 @@ const Grid = MainRoutes('grid')
 const TreeItem = MainRoutes('treeview')
 // 引入 svgchart 组件
 const SvgChart = MainRoutes('svgchart')
+// 引入 modal 组件
+const Modal = MainRoutes('modal')
 
 Vue.use(Router)
 
@@ -60,6 +62,11 @@ export default new Router({
       path: '/svgchart',
       name: 'svgchart',
       component: SvgChart
+    },
+    {
+      path: '/modal',
+      name: 'modal',
+      component: Modal
     }
 
   ]
