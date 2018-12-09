@@ -7,6 +7,7 @@
       <li><router-link to="/markdown">markdown exmaple</router-link></li>
       <li><router-link to="/gitsub">github submit example</router-link></li>
       <li><router-link to="/grid">grid example</router-link></li>
+      <li><router-link to="/svgchart">svg chart example</router-link></li>
     </ul>
   </div>
 </template>

@@ -16,7 +16,7 @@ export default class AxisLabel extends Mixins(CalcMixin) {
 
   get point () {
     return this.valueToPoint(
-      +this.stat.value + 10,
+      +this.stat.value + 20, // 避免文字跑到图表里面
       this.index,
       this.total
     )

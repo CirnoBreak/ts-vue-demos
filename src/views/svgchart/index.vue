@@ -44,7 +44,7 @@ interface statsProp {
 })
 export default class SvgChart extends Vue {
   newLabel: string = ''
-  stats:Array<statsProp> = stats
+  stats: Array<statsProp> = stats
 
   add (e: Event) {
     e.preventDefault()
