@@ -19,6 +19,8 @@ const TreeItem = MainRoutes('treeview')
 const SvgChart = MainRoutes('svgchart')
 // 引入 modal 组件
 const Modal = MainRoutes('modal')
+// 引入 deepstream 组件
+const DeepStream = MainRoutes('deepstreamhub')
 
 Vue.use(Router)
 
@@ -67,6 +69,11 @@ export default new Router({
       path: '/modal',
       name: 'modal',
       component: Modal
+    },
+    {
+      path: '/deepstreamhub',
+      name: 'deepstreamhub',
+      component: DeepStream
     }
 
   ]
